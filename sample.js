@@ -3,10 +3,10 @@ $(document).ready(function () {
         // By making such a description, in the variable called subject_points
         // You can create an array of [language score, English score, math score, science score, society score].
         let subject_points = [Number($('#national_language').val()),
-        Number($('#english').val()),
-        Number($('#mathematics').val()),
-        Number($('#science').val()),
-        Number($('#society').val())
+            Number($('#english').val()),
+            Number($('#mathematics').val()),
+            Number($('#science').val()),
+            Number($('#society').val())
         ];
 
         // Furthermore, by making such a description, the total point is output to the right part: "total point:"
@@ -17,7 +17,7 @@ $(document).ready(function () {
         sum = sum + subject_points[4];
         $("#sum_indicate").text(sum);
 
-        let pointaverage = (sum*100)/500;
+        let pointaverage = (sum * 100) / 500;
         $('#avarage_indicate').text(pointaverage);
         // return subject_points;
         // return sum;
@@ -37,14 +37,11 @@ $(document).ready(function () {
         let percentage = (sum * 100) / 500;
         if (percentage >= 80) {
             return "A";
-        }
-        else if (percentage >= 60) {
+        } else if (percentage >= 60) {
             return "B";
-        }
-        else if (percentage >= 40) {
+        } else if (percentage >= 40) {
             return "C";
-        }
-        else {
+        } else {
             return "D";
         }
     }
@@ -59,8 +56,7 @@ $(document).ready(function () {
         });
         if (number == undefined) {
             judge = "Passed";
-        }
-        else {
+        } else {
             judge = "Failed";
         }
         return judge;
@@ -70,8 +66,8 @@ $(document).ready(function () {
     function judgement() {
         // write the processing to output contents such as “Your grade is A when you press the “final judge” button.
         // By writing the following, if you click the button of "final judge", "Your grade is (the value of" rank "is put here). A process is implemented in which a light blue balloon with the text “(The value of“ judgment ”) is is output.
-     var achievement = get_achievement();
-     var passOrFail = get_pass_or_failure();
+        var achievement = get_achievement();
+        var passOrFail = get_pass_or_failure();
         $('#declaration').append(`<label id="alert-indicate" class="alert alert-info">Your grade is ${achievement}. ${passOrFail}</label>`);
     };
 
@@ -92,6 +88,8 @@ $(document).ready(function () {
     });
 
     $('#btn-declaration').click(function () {
+
+        $('#declaration').text("");
         judgement();
     });
 });
